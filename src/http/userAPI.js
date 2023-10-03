@@ -3,7 +3,7 @@ import jwt_decode from "jwt-decode";  // Імпортуємо бібліотек
 
 // Функція для реєстрації нового користувача
 export const registration = async (email, password) => {
-    const { data } = await $host.post('api/user/registration', { email, password, role: 'ADMIN' });  // Виконуємо POST-запит для реєстрації користувача з вказаним email, паролем та роллю 'USER'.
+    const { data } = await $host.post('api/user/registration', { email, password, role: 'USER' });  // Виконуємо POST-запит для реєстрації користувача з вказаним email, паролем та роллю 'USER'.
     localStorage.setItem('token', data.token);  // Зберігаємо отриманий JWT-токен в локальному сховищі браузера.
     return jwt_decode(data.token);  // Декодуємо отриманий JWT-токен та повертаємо розшифровану інформацію про користувача.
 }
