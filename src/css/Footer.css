@@ -1,4 +1,4 @@
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 1250px) {
     .footer {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -6,6 +6,7 @@
         background-color: white;
         color: black;
         height: 45vh;
+        padding: 0 20%;
         /* background-image: url(/img/BgAbout3.jpg); */
 
     }
@@ -16,10 +17,33 @@
         padding: 1%;
         text-align: center;
     }
-
 }
 
-@media screen and (max-width: 750px){
+
+@media screen
+and (min-width: 615px)
+and (max-width: 1250px){
+    .footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        background-color: white;
+        color: black;
+        height: 45vh;
+        /*padding: 0 20%;*/
+        /* background-image: url(/img/BgAbout3.jpg); */
+
+    }
+
+    footer p {
+        margin: 0 ;
+        color: white;
+        padding: 1%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 615px) {
     .footer {
 
         background-color: white;

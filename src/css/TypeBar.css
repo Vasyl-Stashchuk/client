@@ -1,5 +1,5 @@
 @media screen and (min-width: 1250px) {
-    .brand-bar {
+    .type-bar {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -7,15 +7,15 @@
         padding-bottom: 20px;
         padding: 0 20%;
     }
-    .brand-bar-alt {
+    .type-bar-alt {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         background-color: black;
         padding-bottom: 20px;
         padding: 2% 20%;
     }
-    .brand-bar .passive-button {
+    .type-bar .passive-button {
         background: white;
         text-transform: uppercase;
         border: 0px solid;
@@ -24,9 +24,8 @@
         /*font-family: 'Source Sans Pro', sans-serif;*/
         /*font-family: 'Open Sans', sans-serif;*/
     }
-    .brand-bar .active-button {
+    .type-bar .active-button {
         background: white;
-        color: black;
         text-transform: uppercase;
         padding: 10px 10px;
         font-family: 'Arimo', sans-serif;
@@ -37,7 +36,7 @@
         outline: none;
         font-weight: bold;
     }
-    .brand-bar-alt .passive-button {
+    .type-bar-alt .passive-button {
         background: black;
         color: white;
         text-transform: uppercase;
@@ -47,7 +46,7 @@
         /*font-family: 'Source Sans Pro', sans-serif;*/
         /*font-family: 'Open Sans', sans-serif;*/
     }
-    .brand-bar-alt .active-button {
+    .type-bar-alt .active-button {
         background: black;
         color: white;
         text-transform: uppercase;
@@ -59,23 +58,13 @@
         border-bottom: 1px solid #f7654a;
         outline: none;
         font-weight: bold;
-    }
-    .brand {
-        display: flex;
-        flex-direction: row;
-    }
-    .type {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
     }
 }
 
 @media screen
 and (min-width: 615px)
 and (max-width: 1250px){
-    .brand-bar {
+    .type-bar {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -83,15 +72,15 @@ and (max-width: 1250px){
         padding-bottom: 20px;
         padding: 0 20%;
     }
-    .brand-bar-alt {
+    .type-bar-alt {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         background-color: black;
         padding-bottom: 20px;
         padding: 2% 20%;
     }
-    .brand-bar .passive-button {
+    .type-bar .passive-button {
         background: white;
         text-transform: uppercase;
         border: 0px solid;
@@ -100,9 +89,8 @@ and (max-width: 1250px){
         /*font-family: 'Source Sans Pro', sans-serif;*/
         /*font-family: 'Open Sans', sans-serif;*/
     }
-    .brand-bar .active-button {
+    .type-bar .active-button {
         background: white;
-        color: black;
         text-transform: uppercase;
         padding: 10px 10px;
         font-family: 'Arimo', sans-serif;
@@ -113,7 +101,7 @@ and (max-width: 1250px){
         outline: none;
         font-weight: bold;
     }
-    .brand-bar-alt .passive-button {
+    .type-bar-alt .passive-button {
         background: black;
         color: white;
         text-transform: uppercase;
@@ -123,7 +111,7 @@ and (max-width: 1250px){
         /*font-family: 'Source Sans Pro', sans-serif;*/
         /*font-family: 'Open Sans', sans-serif;*/
     }
-    .brand-bar-alt .active-button {
+    .type-bar-alt .active-button {
         background: black;
         color: white;
         text-transform: uppercase;
@@ -135,21 +123,11 @@ and (max-width: 1250px){
         border-bottom: 1px solid #f7654a;
         outline: none;
         font-weight: bold;
-    }
-    .brand {
-        display: flex;
-        flex-direction: row;
-    }
-    .type {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
     }
 }
 
 @media screen and (max-width: 615px) {
-    .brand-bar {
+    .type-bar {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -157,15 +135,15 @@ and (max-width: 1250px){
         padding-bottom: 20px;
         padding: 0;
     }
-    .brand-bar-alt {
+    .type-bar-alt {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         background-color: black;
         padding-bottom: 20px;
         padding: 0;
     }
-    .brand-bar .passive-button {
+    .type-bar .passive-button {
         background: white;
         text-transform: uppercase;
         border: 0px solid;
@@ -175,9 +153,8 @@ and (max-width: 1250px){
         /*font-family: 'Source Sans Pro', sans-serif;*/
         /*font-family: 'Open Sans', sans-serif;*/
     }
-    .brand-bar .active-button {
+    .type-bar .active-button {
         background: white;
-        color: black;
         text-transform: uppercase;
         padding: 10px 10px;
         font-size: 12px;
@@ -189,7 +166,7 @@ and (max-width: 1250px){
         outline: none;
         font-weight: bold;
     }
-    .brand-bar-alt .passive-button {
+    .type-bar-alt .passive-button {
         background: black;
         color: white;
         text-transform: uppercase;
@@ -200,7 +177,7 @@ and (max-width: 1250px){
         /*font-family: 'Source Sans Pro', sans-serif;*/
         /*font-family: 'Open Sans', sans-serif;*/
     }
-    .brand-bar-alt .active-button {
+    .type-bar-alt .active-button {
         background: black;
         color: white;
         text-transform: uppercase;
@@ -213,17 +190,6 @@ and (max-width: 1250px){
         border-bottom: 1px solid #f7654a;
         outline: none;
         font-weight: bold;
-    }
-
-    .brand {
-        display: flex;
-        flex-direction: row;
-    }
-    .type {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
     }
 }
 

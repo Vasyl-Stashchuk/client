@@ -15,7 +15,7 @@ function Footer() {
 
     return (
         <footer>
-        <div className="footer cont">
+        <div className="footer">
             <div className="footer-imgs">
                 <div>
                     <p className="img-footer">

@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";  // Імпортуємо біблі�
 import { Context } from "../index";  // Імпортуємо контекст додатка з кореневого файлу.
 import {Button, Card, Row} from "react-bootstrap";  // Імпортуємо компоненти Bootstrap для створення карток та рядків.
 import '../css/BrandBar.css';
+import '../css/TypeBar.css';
 import '../css/index.css';
 
 const BrandBarAlt = observer(() => {
@@ -25,21 +26,38 @@ const BrandBarAlt = observer(() => {
 
     return (
         <div className="brand-bar-alt">
-            <button
-                className={device.selectedBrand.id ? "passive-button" : "active-button"}
-                onClick={showAllDevices}
-            >
-                Всі проекти
-            </button>
-            {device.brands.map(brand =>
+            <div className="brand">
                 <button
-                    key={brand.id}
-                    className={brand.id === device.selectedBrand.id ? "active-button" : "passive-button"}
-                    onClick={() => device.setSelectedBrand(brand)}
+                    className={device.selectedBrand.id ? "passive-button" : "active-button"}
+                    onClick={showAllDevices}
                 >
-                    {brand.name}
+                    Всі проекти
                 </button>
-            )}
+                {device.brands.map(brand =>
+                    <button
+                        key={brand.id}
+                        className={brand.id === device.selectedBrand.id ? "active-button" : "passive-button"}
+                        onClick={() => device.setSelectedBrand(brand)}
+                    >
+                        {brand.name}
+                    </button>
+                )}
+            </div>
+
+            <div className="type">
+                {device.types.map(type =>
+                    <button
+                        // style={{ cursor: 'pointer' }}  // Змінюємо курсор при наведенні для елементів, які можна клікнути.
+                        className={type.id === device.selectedType.id ? "active-button" : "passive-button"}
+                        // active={type.id === device.selectedType.id}  // Позначаємо вибраний тип активним (за замовчуванням) за допомогою Bootstrap.
+                        onClick={() => device.setSelectedType(type)}  // Обробник кліку для вибору типу пристрою.
+                        key={type.id}  // Унікальний ключ для кожного елемента списку (React вимагає унікальних ключів).
+                    >
+                        {type.name}  {/* Відображення назви типу пристрою */}
+                    </button>
+                )}
+            </div>
+
         </div>
     );
 });

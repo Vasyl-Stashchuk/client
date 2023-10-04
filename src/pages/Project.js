@@ -8,6 +8,7 @@ import BrandBar from "../components/BrandBar";
 import DeviceList from "../components/DeviceList";
 import Pages from "../components/Pages";
 import BrandBarAlt from "../components/BrandBarAlt";
+import TypeBar from "../components/TypeBar";
 
 const Project = observer(() => {
 
@@ -44,6 +45,8 @@ const Project = observer(() => {
                 <hr className="super-hr"/>
             </div>
             <BrandBarAlt />  {/* Відображаємо компонент BrandBar для фільтрації за брендами пристроїв. */}
+                {/*<TypeBar />  /!* Відображаємо компонент TypeBar для фільтрації за типами пристроїв. *!/*/}
+
             <DeviceList />  {/* Відображаємо компонент DeviceList для відображення списку пристроїв. */}
             <Pages />  {/* Відображаємо компонент Pages для створення сторінкованого відображення списку пристроїв. */}
 

@@ -13,7 +13,7 @@ const Facilities = () => {
     return (
         <div>
             <div className="services-h3">
-                <h3>Послуги</h3>
+                <h3>ПОСЛУГИ</h3>
                 <hr className="super-hr"/>
 
                     <h5>Спектр услуг предоставляемый компанией ООО «Кронк Строй»</h5>
