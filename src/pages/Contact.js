@@ -8,7 +8,7 @@ const Contact = () => {
 
     const handleFormSubmit = async (formData) => {
         try {
-            const response = await fetch('https://formsubmit.co/anto47474747@gmail.com', {
+            const response = await fetch('https://formsubmit.co/b4adf86b709c51dd5aa0111af02af652', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
