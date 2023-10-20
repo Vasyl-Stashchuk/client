@@ -8,6 +8,6 @@ export const BASKET_ROUTE = '/basket'             // Шлях до кошика 
 export const DEVICE_ROUTE = '/device'             // Шлях до сторінки пристрою (який відображає окремий пристрій).
 export const PROJECTS_ROUTE = '/projects'             // Шлях до сторінки пристрою (який відображає окремий пристрій).
 export const ABOUT_ROUTE = '/pro-nas'             // Шлях до сторінки пристрою (який відображає окремий пристрій).
-export const FACILITIES_ROUTE = '/facilities'             // Шлях до сторінки пристрою (який відображає окремий пристрій).
+export const FACILITIES_ROUTE = '/service'             // Шлях до сторінки пристрою (який відображає окремий пристрій).
 export const CONTACT_ROUTE = '/kontakty'             // Шлях до сторінки пристрою (який відображає окремий пристрій).
 export const SUCCESS_ROUTE = '/success'             // Шлях до сторінки пристрою (який відображає окремий пристрій).
