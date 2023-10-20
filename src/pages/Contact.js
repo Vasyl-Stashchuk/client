@@ -7,6 +7,7 @@ import '../css/index.css';
 const Contact = () => {
 
     const handleFormSubmit = async (formData) => {
+        console.log('Form data:', formData);
         try {
             const response = await fetch('https://formsubmit.co/b4adf86b709c51dd5aa0111af02af652', {
                 method: 'POST',

@@ -30,10 +30,10 @@ const ContactForm = ({ onFormSubmit }) => {
                 />
 
                 <h4>Ваш номер телефону:</h4>
-                <input className="contact-input"
-                    type="tel"  // Fixed the input type here
-                    value="+380"
-                    placeholder="Ваші ім'я та прізвище"
+                <input
+                    className="contact-input"
+                    type="tel"
+                    placeholder="+380"
                     onChange={(e) => setNumber(e.target.value)}
                     required
                 />

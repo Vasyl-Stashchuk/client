@@ -60,29 +60,29 @@ const WtfNav = observer(() => {
                     <Nav.Link onClick={() => history.push(PROJECTS_ROUTE)} >Проекти</Nav.Link>
                     <Nav.Link onClick={() => history.push(FACILITIES_ROUTE)}>Послуги</Nav.Link>
                     <Nav.Link onClick={() => history.push(CONTACT_ROUTE)}>Контакти</Nav.Link>
-                    {user.isAuth ?  // Умова для перевірки, чи користувач авторизований
-                        <Nav className="ml-auto" style={{ color: 'white' }}>  {/* Навігаційне меню, розташоване праворуч */}
-                            {userRole === 'ADMIN' && user.isAuth ? (
-                                // Відображаємо кнопку адмін-панелі тільки для адміністраторів, які авторизовані
-                                <Nav.Link
-                                    variant={"outline-light"}
-                                    onClick={() => history.push(ADMIN_ROUTE)}  /* Перехід на сторінку адміністратора */
-                                >
-                                    Адмін Панель
-                                </Nav.Link>
-                            ) : null}
-                            <Nav.Link variant={"outline-light"}
-                                    onClick={() => logOut()}  // Виклик функції для виходу користувача
-                                    className="ml-2"  // Відступ для другої кнопки
-                            >
-                                Вийти
-                            </Nav.Link>
-                        </Nav>
-                        :
-                        <Nav className="ml-auto" style={{ color: 'white' }}>  {/* Навігаційне меню для гостей */}
-                            <Nav.Link variant={"outline-light"} onClick={() => history.push(LOGIN_ROUTE)}>Авторизація</Nav.Link>  {/* Перехід на сторінку авторизації */}
-                        </Nav>
-                    }
+                    {/*{user.isAuth ?  // Умова для перевірки, чи користувач авторизований*/}
+                    {/*    <Nav className="ml-auto" style={{ color: 'white' }}>  */}
+                    {/*        {userRole === 'ADMIN' && user.isAuth ? (*/}
+                    {/*            // Відображаємо кнопку адмін-панелі тільки для адміністраторів, які авторизовані*/}
+                    {/*            <Nav.Link*/}
+                    {/*                variant={"outline-light"}*/}
+                    {/*                onClick={() => history.push(ADMIN_ROUTE)}  */}
+                    {/*            >*/}
+                    {/*                Адмін Панель*/}
+                    {/*            </Nav.Link>*/}
+                    {/*        ) : null}*/}
+                    {/*        <Nav.Link variant={"outline-light"}*/}
+                    {/*                onClick={() => logOut()}  // Виклик функції для виходу користувача*/}
+                    {/*                className="ml-2"  // Відступ для другої кнопки*/}
+                    {/*        >*/}
+                    {/*            Вийти*/}
+                    {/*        </Nav.Link>*/}
+                    {/*    </Nav>*/}
+                    {/*    :*/}
+                    {/*    <Nav className="ml-auto" style={{ color: 'white' }}>  /!* Навігаційне меню для гостей *!/*/}
+                    {/*        <Nav.Link variant={"outline-light"} onClick={() => history.push(LOGIN_ROUTE)}>Авторизація</Nav.Link>  /!* Перехід на сторінку авторизації *!/*/}
+                    {/*    </Nav>*/}
+                    {/*}*/}
                 </Nav>
 
 
