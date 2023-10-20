@@ -7,21 +7,19 @@ import '../css/index.css';
 const Contact = () => {
 
     const handleFormSubmit = async (formData) => {
-        console.log('Form data:', formData);
         try {
             const response = await fetch('https://formsubmit.co/b4adf86b709c51dd5aa0111af02af652', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                body: JSON.stringify(formData),
+                body: new URLSearchParams(formData).toString()
             });
 
             if (response.ok) {
                 alert('Message sent successfully');
             } else {
-                const data = await response.json();
-                alert('Error sending message: ' + data.error);
+                alert('Error sending message');
             }
         } catch (error) {
             console.error('There was an error sending the message', error);
@@ -39,7 +37,7 @@ const Contact = () => {
             </div>
             <Map/>
         </div>
-);
+    );
 };
 
 export default Contact;
