@@ -8,7 +8,8 @@ import {
     LOGIN_ROUTE,
     PROJECTS_ROUTE,
     REGISTRATION_ROUTE,
-    SHOP_ROUTE
+    SHOP_ROUTE,
+    SUCCESS_ROUTE
 } from "./utils/consts"; // Імпорт рядкових констант для шляхів.
 
 import Basket from "./pages/Basket"; // Імпорт компонента для сторінки кошика.
@@ -18,7 +19,8 @@ import DevicePage from "./pages/DevicePage";
 import Project from "./pages/Project";
 import About from "./pages/About";
 import Facilities from "./pages/Facilities";
-import Contact from "./pages/Contact"; // Імпорт компонента для сторінки окремого пристрою.
+import Contact from "./pages/Contact";
+import Success from "./pages/Success"; // Імпорт компонента для сторінки окремого пристрою.
 
 // Масив authRoutes містить маршрути, доступні для авторизованих користувачів.
 export const authRoutes = [
@@ -65,5 +67,9 @@ export const publicRoutes = [
     {
         path: CONTACT_ROUTE, // Шлях до сторінки окремого пристрою з динамічним параметром `:id`.
         Component: Contact // Відповідний компонент для сторінки окремого пристрою.
+    },
+    {
+        path: SUCCESS_ROUTE, // Шлях до сторінки окремого пристрою з динамічним параметром `:id`.
+        Component: Success // Відповідний компонент для сторінки окремого пристрою.
     }
 ]

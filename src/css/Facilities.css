@@ -14,10 +14,10 @@ body {
 }
 
 .services-h3 h3 {
-    padding: 1% 0 1%;
+    /*padding: 1% 0 1%;*/
     color: white;
     text-align: center;
-    margin: 0;
+    /*margin: 0;*/
 }
 
 .services-h3 h5 {
