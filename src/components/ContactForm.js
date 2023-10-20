@@ -14,14 +14,14 @@ const ContactForm = () => {
     const [userMessage, setUserMessage] = useState('');
 
     const history = useHistory();  // Отримуємо історію браузера для переходу до інших сторінок.
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // You can add any custom logic you want before the form submission here
-        // Then, submit the form programmatically:
-        e.target.submit();
-        history.push(SUCCESS_ROUTE);
-    };
+    //
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     // You can add any custom logic you want before the form submission here
+    //     // Then, submit the form programmatically:
+    //     e.target.submit();
+    //     history.push(SUCCESS_ROUTE);
+    // };
 
     return (
 
@@ -30,14 +30,14 @@ const ContactForm = () => {
                         className="contact-form"
                         action="https://formsubmit.co/b4adf86b709c51dd5aa0111af02af652"
                         method="POST"
-                        onSubmit={handleSubmit}
+                        // onSubmit={handleSubmit}
                     >
 
                     {/* Honeypot */}
                     <input type="text" name="_honey" style={{display:'none'}} />
                     {/* Disable Captcha */}
                     <input type="hidden" name="_captcha" value="false" />
-                    <input type="hidden" name="_next" value="" onClick={() => history.push(SUCCESS_ROUTE)} />
+                    <input type="hidden" name="_next" value="https://kronkstroy.com/success"  />
 
                     <h4>Ваше ім'я та прізвище</h4>
                     <input
