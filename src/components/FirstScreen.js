@@ -14,9 +14,11 @@ const FirstScreen = observer(() => {
 
     useEffect(() => {
         fetchDevices().then(data => {
+            console.log(data.rows.length)
             // Вибрати 8 випадкових зображень
             const shuffled = data.rows.sort(() => 0.5 - Math.random());
             const selectedImages = shuffled.slice(0, 8).map(item => process.env.REACT_APP_API_URL + item.img);
+            console.log(selectedImages);
             setBackgroundUrls(selectedImages);
         });
     }, []);

@@ -77,19 +77,19 @@ and (max-width: 1250px){
     animation: imageAnimation 60s linear infinite 0s
 }
 
-.first-item:nth-child(2) {
+.first-item:nth-child(1) {
     animation-delay: 10s
 }
-.first-item:nth-child(3) {
+.first-item:nth-child(2) {
     animation-delay: 20s
 }
-.first-item:nth-child(4) {
+.first-item:nth-child(3) {
     animation-delay: 30s
 }
-.first-item:nth-child(5) {
+.first-item:nth-child(4) {
     animation-delay: 40s
 }
-.first-item:nth-child(6) {
+.first-item:nth-child(5) {
     animation-delay: 50s
 }
 

@@ -42,7 +42,7 @@ export const createDevice = async (device) => {
 }
 
 // Функція для отримання списку пристроїв з можливістю фільтрації за типом, брендом, сторінкою та лімітом на сторінку
-export const fetchDevices = async (typeId, brandId, page, limit = 5) => {
+export const fetchDevices = async (typeId, brandId, page, limit = 8) => {
     const { data } = await $host.get('api/device', {
         params: {
             typeId,  // Фільтр за типом пристрою
