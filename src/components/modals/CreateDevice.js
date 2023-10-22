@@ -6,6 +6,9 @@ import DropdownMenu from "react-bootstrap/DropdownMenu";
 import { createDevice, fetchBrands, fetchDevices, fetchTypes } from "../../http/deviceApi";  // Імпортуємо функції для взаємодії з сервером.
 import { observer } from "mobx-react-lite";  // Імпортуємо бібліотеку для створення спостерігачів MobX.
 import { values } from "mobx";  // Імпортуємо функції для роботи з MobX.
+import fs from 'fs';
+import webp from 'webp-converter';
+
 
 const CreateDevice = observer(({ show, onHide }) => {
     const { device } = useContext(Context);  // Отримуємо дані з контексту додатка.
@@ -50,18 +53,43 @@ const CreateDevice = observer(({ show, onHide }) => {
         setFile(e.target.files[0])
     }
 
-    const addDevice = () => {
+    const convertToWebp = async (file) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onloadend = function () {
+                const base64data = reader.result.split(',')[1];
+                webp.cwebp(base64data, "image/webp", "-q 80", (status, convertedBuffer) => {
+                    if (status === '100') {
+                        const blob = new Blob([convertedBuffer], { type: 'image/webp' });
+                        resolve(blob);
+                    } else {
+                        reject('Failed to convert image to webp');
+                    }
+                });
+            };
+        });
+    };
+
+    const addDevice = async () => {
         const formData = new FormData();
         formData.append('name', name);
         formData.append('price', `${price}`);
-        formData.append('img', file)
+
+        // Конвертація титульного фото до webp
+        if (file) {
+            const webpFile = await convertToWebp(file);
+            formData.append('img', webpFile);
+        }
+
         formData.append('brandId', device.selectedBrand.id);
         formData.append('typeId', device.selectedType.id);
         formData.append('info', JSON.stringify(info));
 
-        // Додаємо всі вибрані файли в FormData.
+        // Конвертація всіх інших фото до webp
         for (const file of files) {
-            formData.append('images', file);
+            const webpFile = await convertToWebp(file);
+            formData.append('images', webpFile);
         }
 
         createDevice(formData).then(data => onHide());
@@ -151,17 +179,17 @@ const CreateDevice = observer(({ show, onHide }) => {
                     {info.map(i =>
                         <Row className="mt-4" key={i.number}>
                             <Col md={4}>
-                                <Form.Control
-                                    value={i.title}
-                                    onChange={(e) => changeInfo('title', e.target.value, i.number)}
-                                    placeholder="Введіть назву властивості"
-                                />
+                                {/*<Form.Control*/}
+                                {/*    value={i.title}*/}
+                                {/*    onChange={(e) => changeInfo('title', e.target.value, i.number)}*/}
+                                {/*    placeholder="Введіть назву властивості"*/}
+                                {/*/>*/}
                             </Col>
                             <Col md={4}>
                                 <Form.Control
                                     value={i.description}
                                     onChange={(e) => changeInfo('description', e.target.value, i.number)}
-                                    placeholder="Введіть опис властивості"
+                                    placeholder="Введіть опис проекту"
                                 />
                             </Col>
                             <Col md={4}>

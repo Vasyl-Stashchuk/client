@@ -17,10 +17,10 @@ import '../css/index.css';
 
 const DeviceCharacteristics = ({ info }) => (
     <Row className="d-flex flex-column m-3">
-        <h4>Опис проекту</h4>
+        <h4></h4>
         {info.map((info, index) =>
-            <Row key={info.id} style={{ background: index % 2 === 0 ? 'lightgray' : 'transparent', padding: 10 }}>
-                {info.title}: {info.description}
+            <Row key={info.id}>
+                {info.description}
             </Row>
         )}
     </Row>

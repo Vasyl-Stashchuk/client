@@ -118,6 +118,7 @@
 
 .ReactModal__Overlay  {
     /*position: absolute;*/
-    /*max-height: 95%;*/
-    top: 6%!important;
+    max-height: 95%;
+    top: 4rem!important;
+    /*overflow: hidden;*/
 }

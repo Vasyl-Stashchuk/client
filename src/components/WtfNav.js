@@ -1,6 +1,7 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import '../css/WtfNav.css';
-import navKronk from '../assets/NavKronk.png';  // Імпортуємо зображення для відображення рейтингу.
+import navKronkBig from '../assets/Kronk.svg';
+import navKronkSmall from '../assets/NavKronk.png';
 import {Nav, Navbar} from "react-bootstrap";
 import bigStar from "../assets/bigStar.png";
 import {
@@ -22,6 +23,13 @@ const WtfNav = observer(() => {
     const { user } = useContext(Context);  // Отримуємо дані про користувача з контексту додатка.
     const history = useHistory();  // Отримуємо історію браузера для переходу до інших сторінок.
 
+    const [navExpanded, setNavExpanded] = useState(false); // 2. Додайте стан navExpanded
+
+    const handleNavLinkClick = (route) => {
+        history.push(route);
+        setNavExpanded(false); // Закриваємо навігаційну панель
+    };
+
     const token = localStorage.getItem('token');
 
     let userRole = '';
@@ -35,19 +43,51 @@ const WtfNav = observer(() => {
         }
     }
 
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [currentImage, setCurrentImage] = useState(windowWidth > 768 ? navKronkBig : navKronkSmall);
+    const [imageDimensions, setImageDimensions] = useState({ width: 45, height: 40 });
 
-    const logOut = () => {  // Функція для виходу користувача.
-        user.setUser({});  // Очищаємо дані користувача в контексті.
-        user.setIsAuth(false);  // Встановлюємо флаг авторизації в `false`.
-    }
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (windowWidth > 768) {
+            setCurrentImage(navKronkBig);
+            setImageDimensions({ width: 90, height: 80 }); // Двічі більший розмір, наприклад.
+        } else {
+            setCurrentImage(navKronkSmall);
+            setImageDimensions({ width: 45, height: 40 });
+        }
+    }, [windowWidth]);
+
+
+    // const logOut = () => {  // Функція для виходу користувача.
+    //     user.setUser({});  // Очищаємо дані користувача в контексті.
+    //     user.setIsAuth(false);  // Встановлюємо флаг авторизації в `false`.
+    // }
 
     return (
-        <Navbar sticky="top" className="bg-black navbar-dark" expand="lg">
+        <Navbar
+            sticky="top"
+            className="bg-black navbar-dark responsive"
+            expand="lg"
+            expanded={navExpanded} // 3. Зв'яжіть стан navExpanded
+            onToggle={(expanded) => setNavExpanded(expanded)} // Оновлюємо стан, коли панель розгортається або згортається
+        >
             <Navbar.Brand href={SHOP_ROUTE}>
                 <img
-                    src={navKronk}
-                    width="45"
-                    height="40"
+                    src={currentImage}
+                    width={imageDimensions.width}
+                    height={imageDimensions.height}
                     className="d-inline-block align-top"
                     alt="KronkStroy"
                 />
@@ -55,18 +95,19 @@ const WtfNav = observer(() => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
                 <Nav className="ml-auto">
-                    <Nav.Link onClick={() => history.push(SHOP_ROUTE)}>Головна</Nav.Link>
-                    <Nav.Link onClick={() => history.push(ABOUT_ROUTE)}>Про нас</Nav.Link>
-                    <Nav.Link onClick={() => history.push(PROJECTS_ROUTE)} >Проекти</Nav.Link>
-                    <Nav.Link onClick={() => history.push(FACILITIES_ROUTE)}>Послуги</Nav.Link>
-                    <Nav.Link onClick={() => history.push(CONTACT_ROUTE)}>Контакти</Nav.Link>
+                    <Nav.Link onClick={() => handleNavLinkClick(SHOP_ROUTE)}>Головна</Nav.Link>
+                    <Nav.Link onClick={() => handleNavLinkClick(ABOUT_ROUTE)}>Про Нас</Nav.Link>
+                    <Nav.Link onClick={() => handleNavLinkClick(PROJECTS_ROUTE)}>Проекти</Nav.Link>
+                    <Nav.Link onClick={() => handleNavLinkClick(FACILITIES_ROUTE)}>Послуги</Nav.Link>
+                    <Nav.Link onClick={() => handleNavLinkClick(CONTACT_ROUTE)}>Контакти</Nav.Link>
+                    {/*<Nav.Link onClick={() => history.push(PROJECTS_ROUTE)} >Проекти</Nav.Link>*/}
                     {user.isAuth ?  // Умова для перевірки, чи користувач авторизований
                         <Nav className="ml-auto" style={{ color: 'white' }}>
                             {userRole === 'ADMIN' && user.isAuth ? (
                                 // Відображаємо кнопку адмін-панелі тільки для адміністраторів, які авторизовані
                                 <Nav.Link
                                     variant={"outline-light"}
-                                    onClick={() => history.push(ADMIN_ROUTE)}
+                                    onClick={() => handleNavLinkClick(ADMIN_ROUTE)}
                                 >
                                     Адмін Панель
                                 </Nav.Link>
