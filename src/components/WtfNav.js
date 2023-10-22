@@ -44,7 +44,7 @@ const WtfNav = observer(() => {
     }
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const [currentImage, setCurrentImage] = useState(windowWidth > 768 ? navKronkBig : navKronkSmall);
+    const [currentImage, setCurrentImage] = useState(windowWidth > 1200 ? navKronkBig : navKronkSmall);
     const [imageDimensions, setImageDimensions] = useState({ width: 45, height: 40 });
 
     useEffect(() => {
@@ -60,7 +60,7 @@ const WtfNav = observer(() => {
     }, []);
 
     useEffect(() => {
-        if (windowWidth > 768) {
+        if (windowWidth > 1200) {
             setCurrentImage(navKronkBig);
             setImageDimensions({ width: 90, height: 80 }); // Двічі більший розмір, наприклад.
         } else {

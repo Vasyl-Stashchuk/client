@@ -1,4 +1,4 @@
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1200px) {
 
     .pictures img {
         object-fit: cover;
@@ -15,10 +15,16 @@
     article .top-separate h3 {
         text-align: center;
         /* margin: 4%; */
+    }
+    .ReactModal__Overlay  {
+        /*position: absolute;*/
+        max-height: 95%;
+        top: 6rem!important;
+        /*overflow: hidden;*/
     }
 }
 
-@media screen and (min-width: 900px) and (max-width: 1500px) {
+@media screen and (min-width: 900px) and (max-width: 1200px) {
 
     .pictures img {
         object-fit: cover;
@@ -35,6 +41,12 @@
     article .top-separate h3 {
         text-align: center;
         /* margin: 4%; */
+    }
+    .ReactModal__Overlay  {
+        /*position: absolute;*/
+        max-height: 95%;
+        top: 4rem!important;
+        /*overflow: hidden;*/
     }
 }
 
@@ -59,6 +71,12 @@
     article .top-separate h3 {
         text-align: center;
         margin: 4%;
+    }
+    .ReactModal__Overlay  {
+        /*position: absolute;*/
+        max-height: 95%;
+        top: 4rem!important;
+        /*overflow: hidden;*/
     }
 
 }
@@ -116,9 +134,19 @@
     scroll-snap-align: center;
 }
 
-.ReactModal__Overlay  {
-    /*position: absolute;*/
-    max-height: 95%;
-    top: 4rem!important;
-    /*overflow: hidden;*/
+.photo-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
+
+.photo-list div {
+    display: contents;
+}
+
+.photo-list img {
+    max-width: 33%;
+    object-fit: cover;
+}
+
+

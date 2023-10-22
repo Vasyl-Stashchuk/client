@@ -1,4 +1,7 @@
-import { $authHost, $host } from "./index";  // Імпортуємо налаштовані інстанції Axios для виконання HTTP-запитів.
+import { $authHost, $host } from "./index";
+import { promises as fsPromises } from 'fs';
+import * as fs from "fs";
+// Імпортуємо налаштовані інстанції Axios для виконання HTTP-запитів.
   // Імпортуємо бібліотеку для декодування JWT-токенів.
 
 // Функція для створення нового типу пристрою
@@ -63,8 +66,15 @@ export const fetchOneDevice = async (id) => {
 export const deleteDevice = async (deviceId) => {
     try {
         const response = await $authHost.delete(`api/device/${deviceId}`);
-        return response.data; // Опціонально, поверніть дані, якщо потрібно.
+
+        const imagePath = `./static/${response.data.imagePath}`;
+
+        if (fs.existsSync(imagePath)) {
+            await fsPromises.unlink(imagePath); // Використовуємо асинхронне видалення
+        }
+
+        return response.data;
     } catch (error) {
-        throw error; // Обробка помилки буде виконуватися на клієнтській стороні.
+        throw error;
     }
 }

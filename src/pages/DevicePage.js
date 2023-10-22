@@ -61,7 +61,8 @@ const DevicePage = () => {
     const handleDelete = async () => {
         try {
             await deleteDevice(id);
-            history.push('/devices');
+            history.push('/desired-path-after-delete');
+            // Перенаправити на попередню сторінку
         } catch (error) {
             console.error('Error deleting device:', error);
         }
@@ -120,6 +121,23 @@ const DevicePage = () => {
                         </div>
                     ))}
                 </div>
+            </div>
+
+            <div className="photo-list">
+                {deviceImages.map((img, index) => (
+                    <div key={index}>
+                        <img
+                            style={{ cursor: 'pointer' }}
+                            // width={100}
+                            // height={100}
+                            src={imageUrls[index]}
+                            onClick={() => {
+                                setIsOpen(true);
+                                setPhotoIndex(index);
+                            }}
+                        />
+                    </div>
+                ))}
             </div>
             {isOpen && (
                 <Lightbox
