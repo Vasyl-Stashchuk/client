@@ -123,22 +123,22 @@ const DevicePage = () => {
                 </div>
             </div>
 
-            <div className="photo-list">
-                {deviceImages.map((img, index) => (
-                    <div key={index}>
-                        <img
-                            style={{ cursor: 'pointer' }}
-                            // width={100}
-                            // height={100}
-                            src={imageUrls[index]}
-                            onClick={() => {
-                                setIsOpen(true);
-                                setPhotoIndex(index);
-                            }}
-                        />
-                    </div>
-                ))}
-            </div>
+            {/*<div className="photo-list">*/}
+            {/*    {deviceImages.map((img, index) => (*/}
+            {/*        <div key={index}>*/}
+            {/*            <img*/}
+            {/*                style={{ cursor: 'pointer' }}*/}
+            {/*                // width={100}*/}
+            {/*                // height={100}*/}
+            {/*                src={imageUrls[index]}*/}
+            {/*                onClick={() => {*/}
+            {/*                    setIsOpen(true);*/}
+            {/*                    setPhotoIndex(index);*/}
+            {/*                }}*/}
+            {/*            />*/}
+            {/*        </div>*/}
+            {/*    ))}*/}
+            {/*</div>*/}
             {isOpen && (
                 <Lightbox
                     mainSrc={imageUrls[photoIndex]}
