@@ -19,8 +19,24 @@
     .ReactModal__Overlay  {
         /*position: absolute;*/
         max-height: 95%;
-        top: 6rem!important;
+        top: 5rem!important;
         /*overflow: hidden;*/
+    }
+
+    .pictures {
+        scroll-snap-type: x mandatory;
+        -webkit-scroll-snap-type: x mandatory;
+        display: flex;
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
+        -webkit-column-gap: 1em;
+        -moz-column-gap: 1em;
+        column-gap: 1em;
+        /* margin-bottom: -1em; */
+        transition: left 1s;
+        margin: 0 10px;
+        gap: 10px;
     }
 }
 
@@ -48,6 +64,22 @@
         top: 4rem!important;
         /*overflow: hidden;*/
     }
+
+    .pictures {
+        scroll-snap-type: x mandatory;
+        -webkit-scroll-snap-type: x mandatory;
+        display: flex;
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
+        -webkit-column-gap: 1em;
+        -moz-column-gap: 1em;
+        column-gap: 1em;
+        /* margin-bottom: -1em; */
+        transition: left 1s;
+        margin: 0 10px;
+        gap: 10px;
+    }
 }
 
 @media screen and (max-width: 900px) {
@@ -55,9 +87,10 @@
     .pictures img {
         object-fit: cover;
         object-position: center;
-        margin-bottom: 1em;
-        width: 14rem;
-        height: 14rem;
+        max-width: 48%;
+        /*margin-bottom: 1em;*/
+        /*width: 8rem;*/
+        /*height: 8rem;*/
     }
     .carousel-pictures {
         width: 12rem;
@@ -79,6 +112,23 @@
         /*overflow: hidden;*/
     }
 
+    .pictures {
+        scroll-snap-type: x mandatory;
+        -webkit-scroll-snap-type: x mandatory;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        /*-webkit-column-count: 3;*/
+        /*-moz-column-count: 3;*/
+        /*column-count: 3;*/
+        -webkit-column-gap: 1em;
+        -moz-column-gap: 1em;
+        column-gap: 1em;
+        /* margin-bottom: -1em; */
+        transition: left 1s;
+        margin: 0 10px;
+        gap: 10px;
+    }
 }
 
 .carousel {
@@ -92,21 +142,7 @@
     /* margin-bottom: -1em; */
 }
 
-.pictures {
-    scroll-snap-type: x mandatory;
-    -webkit-scroll-snap-type: x mandatory;
-    display: flex;
-    -webkit-column-count: 4;
-    -moz-column-count: 4;
-    column-count: 4;
-    -webkit-column-gap: 1em;
-    -moz-column-gap: 1em;
-    column-gap: 1em;
-    /* margin-bottom: -1em; */
-    transition: left 1s;
-    margin: 0 10px;
-    gap: 10px;
-}
+
 
 .pictures {
     overflow: scroll;
@@ -132,6 +168,7 @@
 }
 .pictures div {
     scroll-snap-align: center;
+    display: contents;
 }
 
 .photo-list {
@@ -148,5 +185,3 @@
     max-width: 33%;
     object-fit: cover;
 }
-
-

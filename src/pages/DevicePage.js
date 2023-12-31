@@ -110,8 +110,8 @@ const DevicePage = () => {
                         <div key={index}>
                             <Image
                                 style={{ cursor: 'pointer' }}
-                                width={100}
-                                height={100}
+                                // width={100}
+                                // height={100}
                                 src={imageUrls[index]}
                                 onClick={() => {
                                     setIsOpen(true);
